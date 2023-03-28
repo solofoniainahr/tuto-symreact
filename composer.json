@@ -39,6 +39,7 @@
         "symfony/translation-contracts": "^2.5",
         "symfony/twig-bundle": "5.4.*",
         "symfony/validator": "5.4.*",
+        "symfony/webpack-encore-bundle": "^1.16",
         "symfony/yaml": "5.4.*",
         "thomaswelton/laravel-mcrypt-faker": "^1.0"
     },
