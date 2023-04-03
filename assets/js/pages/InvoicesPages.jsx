@@ -33,8 +33,6 @@ const InvoicesPages = (props) => {
         try{
             console.log('test') 
             const data = await InvoicesAPI.findAll()
-
-            console.log('test22')
             setInvoices(data)
         }
         catch(error){
