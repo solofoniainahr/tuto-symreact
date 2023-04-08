@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import AuthAPI from '../services/AuthAPI';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 
 //Si on n'utilise pas context
@@ -36,7 +36,7 @@ const Navbar = ({history}) => {
                         {(!isAuthenticate && 
                             <>
                                 <li className='nav-item'>
-                                    <a href='#' className='nav-link'>Inscription</a>
+                                    <NavLink to="/register" className='nav-link'>Inscription</NavLink>
                                 </li>   
                                 <li className='nav-item'>
                                     <NavLink to="/login" className='btn btn-success'>Connexion!</NavLink>

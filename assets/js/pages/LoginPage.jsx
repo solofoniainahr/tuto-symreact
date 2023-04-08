@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react'
 import customersAPI from '../services/customersAPI'
 import AuthAPI from '../services/AuthAPI'
 import AuthContext from '../context/AuthContext'
+import Field from '../components/form/Field'
 
 const LoginPage = ({ history}) => {
     const {setIsAuthenticate} = useContext(AuthContext)
@@ -44,26 +45,19 @@ const LoginPage = ({ history}) => {
         <>
             <h1>Connection à l'application</h1>
             <form onSubmit={handleSubmit}>
-                <div className='form-group'>
-                    <label htmlFor='username'>Adresse email</label>
-                    <input
-                        value={credentials.username}
-                        onChange={handleChange} 
-                        className={'form-control' +(error && ' is-invalid')} 
-                        id='username' type='email' name="username"
-                        placeholder="Adresse email de connexion" />
-                    {  error && <p className='invalid-feedback'>
-                        {error}
-                    </p>
-                    }
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='password'>Mot de passe</label>
-                    <input className='form-control' 
-                           id='password' type='password' 
-                           name='password' placeholder="Mot de passe"
-                           value={credentials.password} onChange={handleChange} />
-                </div>
+                <Field 
+                    label="Adresse email" 
+                    type='email' placeholder='Adresse email de connexion' 
+                    name='username' onChange={handleChange} 
+                    value={credentials.username} error={error} />
+
+                <Field
+                    label='Mot de passe'
+                    type='password' placeholder='Mot de passe'
+                    name='password' onChange={handleChange}
+                    value={credentials.password} 
+                />
+               
                 <div className='form-group mt-2'>
                     <button type='submit' className='btn btn-success'>Connecter</button>
                 </div>

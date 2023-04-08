@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from '../components/Pagination';
 import CustomersAPI from '../services/customersAPI';
-import { async } from 'regenerator-runtime';
+import { Link } from 'react-router-dom';
 
 
 
@@ -90,7 +90,10 @@ const CustomersPage = (props) => {
 
     return ( 
         <>
-            <h1>Liste des clients</h1>
+            <div className='d-flex justify-content-between align-items-center mb-3'>
+                <h1>Liste des clients</h1>
+                <Link className='btn btn-primary' to="/customers/new">Créer un client</Link>
+            </div>
             {/**Début Recherche */}
             <div className='form-group'>
                 <input  type='text'
@@ -119,7 +122,8 @@ const CustomersPage = (props) => {
                             <tr key={customer.id}>
                                 <td>{customer.id}</td>
                                 <td>
-                                    <a href='#'>{customer.firstName} {customer.lastName}</a>
+                                    {/*<a href='#'>{customer.firstName} {customer.lastName}</a>*/}
+                                    <Link to="">{customer.firstName} {customer.lastName}</Link>
                                 </td>
                                 <td>{customer.email}</td>
                                 <td>{customer.company}</td>

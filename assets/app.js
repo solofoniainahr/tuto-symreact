@@ -23,7 +23,9 @@ import './bootstrap';
 import PrivateRoute from './js/components/PrivateRoute';
 import AuthContext from './js/context/AuthContext';
 import AuthAPI from './js/services/AuthAPI';
-
+import CustomerPage from './js/pages/CustomerPage';
+import InvoicePage from './js/pages/InvoicePage';
+import Register from './js/pages/Register';
 
 
 
@@ -59,17 +61,21 @@ const App = () => {
                             <LoginPage onLogin={setIsAuthenticate}
                             {...props} />
                         )} />
+                        <Route path="/register" component={Register} />
                         {/**la seul composent qui eut donné history c'est la route */}
                         {/*<Route path="/login" component={LoginPage} />*/}
                         {/*<Route path="/invoices" component={InvoicesPages} />
                         <Route path="/customers" component={CustomersPage} /> Route non proteger*/}
                         
-                        <Route 
+                        {/** Debut: Test is utilisatuer est authentifié: preotection de route: facon 1 */}
+                        {/*<Route 
                             path="/invoices"
                             render={props => {
                                 return isAuthenticate ? (<InvoicesPages {...props}/>) : (<Redirect to="/login" />)
                             }}
-                        />
+                        />*/}
+                        {/** Fin */}
+                        
                         
 
                         {/**debut sans context */}
@@ -77,6 +83,10 @@ const App = () => {
                         {/**Fin Avec context */}
 
                         {/**Debut avec context */}
+                        
+                        <PrivateRoute path="/invoices/:id" component={InvoicePage} />
+                        <PrivateRoute path="/invoices/" component={InvoicesPages} />
+                        <PrivateRoute path="/customers/:id" component={CustomerPage} />
                         <PrivateRoute path="/customers" component={CustomersPage} />
                         {/**Fin avec context */}
                         {/**Switch with condition simple */}

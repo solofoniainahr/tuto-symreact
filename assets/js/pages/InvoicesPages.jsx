@@ -4,6 +4,7 @@ import { async } from 'regenerator-runtime';
 import axios from 'axios'
 import moment from 'moment/moment';
 import InvoicesAPI from '../services/InvoicesAPI';
+import { Link } from 'react-router-dom';
 
 
 const STATUS_CLASSES = {
@@ -31,7 +32,6 @@ const InvoicesPages = (props) => {
     //Récupération des invoice au près de l'API
     const fetchInvoices = async () => {
         try{
-            console.log('test') 
             const data = await InvoicesAPI.findAll()
             setInvoices(data)
         }
@@ -90,7 +90,10 @@ const InvoicesPages = (props) => {
     }
     return (
         <>
-            <h1>Listes des factures</h1>
+            <div className='mb-3 d-flex justify-content-between align-items-center'>
+                <h1>Listes des factures</h1>
+                <Link className='btn btn-success' to="/invoices/new">Créer une facture</Link>
+            </div>
             {/**Début Recherche */}
             <div className='form-group'>
                 <input  type='text'

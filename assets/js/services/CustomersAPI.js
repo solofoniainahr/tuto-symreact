@@ -9,7 +9,17 @@ function findAll(){
 function deleteCustomer(customerId) {
     return axios.delete("http://localhost:8000/api/customers/"+customerId)
 }
+
+function findCustomer(id){
+    return axios.get("http://localhost:8000/api/customer/"+id).then(response => response.data);
+}
+
+function update(id, customer){
+    return axios.put("http://localhost:8000/api/customers/"+id, customer);
+}
 export default{
     findAll,
-    deleteCustomer
+    deleteCustomer,
+    findCustomer,
+    update
 }

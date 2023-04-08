@@ -16,7 +16,7 @@ function setAxiosToken(token){
 function setUp(){
     //1. Voir si on a un token
     const token = window.localStorage.getItem("authToken")
-    console.log(token)
+    //console.log(token)
     //2. Si le token est encore valide 
     if ( token ) {
         const {exp: expiration} = jwtDecode(token)
