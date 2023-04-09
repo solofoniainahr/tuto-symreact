@@ -26,7 +26,9 @@ import AuthAPI from './js/services/AuthAPI';
 import CustomerPage from './js/pages/CustomerPage';
 import InvoicePage from './js/pages/InvoicePage';
 import Register from './js/pages/Register';
+import { ToastContainer, toast } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 
 
 //console.log("hello world!!!")
@@ -102,6 +104,7 @@ const App = () => {
                     
                 </main>
             </HashRouter>
+            <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
         </AuthContext.Provider>
     )
 }

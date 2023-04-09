@@ -3,6 +3,7 @@ import customersAPI from '../services/customersAPI'
 import AuthAPI from '../services/AuthAPI'
 import AuthContext from '../context/AuthContext'
 import Field from '../components/form/Field'
+import { toast } from 'react-toastify'
 
 const LoginPage = ({ history}) => {
     const {setIsAuthenticate} = useContext(AuthContext)
@@ -32,10 +33,12 @@ const LoginPage = ({ history}) => {
              setError('')
              setIsAuthenticate(true)
              //onLogin(true)
+             toast.success("Vous êtes désormé connecté !!!");
              history.replace("/customers")
         } catch (error) {
             console.log(error.response)
             setError('Aucun compte ne possède pas cette adresse email ou alors les informations ne correspondent pas !!')
+            toast.error("une erreur est survenue ");
             
         }
         console.log(credentials)
